@@ -8,7 +8,6 @@ class UserAccountPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-        self.driver.get(TestData.LOGIN_PAGE_URL)
 
     sign_out_Button = (By.CSS_SELECTOR, "a[title='Log me out']")
     account_name = (By.CSS_SELECTOR, "a[title='View my customer account'] span")

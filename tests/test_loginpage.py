@@ -15,6 +15,7 @@ class TestLogin(BaseTest):
         actual_title = self.loginpage.get_title(TestData.LOGIN_PAGE_TITLE)
         assert actual_title == TestData.LOGIN_PAGE_TITLE
 
+    @pytest.mark.login
     def test_login(self):
         self.loginpage = LoginPage(self.driver)
         self.loginpage.do_login(TestData.USER_EMAIL, TestData.PASSWORD)

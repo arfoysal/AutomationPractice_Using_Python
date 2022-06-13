@@ -29,7 +29,7 @@ def get_driver(request, get_browser):
     else:
         print("Browser Not Found For This Name: " + get_browser)
 
-    driver.set_page_load_timeout(15)
+    driver.set_page_load_timeout(20)
     request.cls.driver = driver
     yield
     driver.close()
