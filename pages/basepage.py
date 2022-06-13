@@ -172,3 +172,15 @@ class BasePage:
     def switch_to_iframe(self, name_or_id_or_element):
         self.wait.until(ec.frame_to_be_available_and_switch_to_it(name_or_id_or_element))
 
+    # Get current browser window handle
+    def get_window_handle(self):
+        return self.driver.current_window_handle
+
+    # Get all browser window handles
+    def get_window_handles(self):
+        return self.driver.window_handles
+
+    # Switch to a browser window
+    def switch_window(self, w_handle):
+        self.driver.switch_to.window(w_handle)
+
