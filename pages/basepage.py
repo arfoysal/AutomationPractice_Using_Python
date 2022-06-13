@@ -94,6 +94,7 @@ class BasePage:
                 element.click()
                 break
 
+    # Perform javascript related tasks
     # Click on a hidden element using javascript
     def click_on_using_js(self, element):
         self.driver.execute_script("arguments[0].click();", element)
@@ -118,6 +119,7 @@ class BasePage:
     def highlight_element(self, element):
         self.driver.execute_script("arguments[0].setAttribute('style','border:2px solid red;background: beige');", element)
 
+    # Perform Action chain related tasks
     # Perform drag and drop from one element to another element.
     def drag_and_drop_by_element(self, source_element, target_element):
         action = ActionChains(self.driver)
@@ -148,6 +150,7 @@ class BasePage:
         shadow_root = self.driver.execute_script('return arguments[0].shadowRoot', host_element)
         return shadow_root.find_element(by_locator)
 
+    # Handle alert related tasks
     # Accept an alert
     def alert_accept(self):
         self.wait_for_alert().accept()
