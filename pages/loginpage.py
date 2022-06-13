@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.basepage import BasePage
+from pages.useraccountpage import UserAccountPage
 from test_data.config import TestData
 
 
@@ -42,7 +43,9 @@ class LoginPage(BasePage):
 
     def do_login(self, email, password):
         self.scroll_to_bottom()
-        self.scroll_to_element(self.login_button)
+        login_btn = self.get_element(self.login_button)
+        self.scroll_to_element(login_btn)
         self.send_text(self.login_email, email)
         self.send_text(self.login_password, password)
         self.click_on(self.login_button)
+        return UserAccountPage(self.driver)
