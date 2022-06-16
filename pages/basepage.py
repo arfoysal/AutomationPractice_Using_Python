@@ -1,3 +1,4 @@
+from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -9,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as ec
 
 class BasePage:
     def __init__(self, driver):
-        self.driver = driver
+        self.driver = driver if driver is not None else webdriver.Remote()
         self.wait = WebDriverWait(self.driver, 15)
 
     # click on a element whenever the element is clickable
